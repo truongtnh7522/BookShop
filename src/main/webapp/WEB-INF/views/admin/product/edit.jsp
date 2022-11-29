@@ -3,7 +3,7 @@
 <%@include file="/common/taglib.jsp"%>
 <c:url var="productURL" value="/quan-tri/san-pham/danh-sach" />
 <c:url var="editproductURL" value="/quan-tri/san-pham/chinh-sua" />
-<c:url var="productAPI" value="/api/category" />
+<c:url var="productAPI" value="/api/product" />
 <!DOCTYPE html>
 <html>
 <head>

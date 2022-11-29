@@ -171,12 +171,17 @@
 										<div class="row tm-edit-product-row">
 											<div class="col-xl-6 col-lg-6 col-md-12">
 
+												
 												<div class="form-group mb-3">
 													<label for="name">Category Name </label>
-													<form:input path="categoryName" id="name" name="categoryName"
+													<form:input path="categoryName" id="name" name="categoryName" oninput="myFunction()"
 														type="text" class="form-control validate" />
 												</div>
-												
+												<div hidden class="form-group mb-3">
+													<label for="code">Category Name </label>
+													<form:input path="code" id="code" name="code" 
+														type="text" class="form-control validate" />
+												</div>
 												
 												<div class="form-group mb-3">
 													<form:input path="images" id="images" name="images"
@@ -295,7 +300,13 @@
 			};
 		};
 	</script>
+<script type="text/javascript">
+function myFunction(){
+	var num1=document.getElementById("name").value;
+	document.getElementById("code").value = num1;
+}
 
+</script>
 	<script>
 		$('#btnAddOrUpdateProduct').click(function(e) {
 			e.preventDefault();

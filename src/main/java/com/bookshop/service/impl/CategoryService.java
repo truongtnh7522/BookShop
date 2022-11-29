@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bookshop.converter.CategoryConverter;
 import com.bookshop.dto.CategoryDTO;
@@ -46,6 +47,7 @@ public class CategoryService implements ICategoryService {
 		return categoryConverter.toDto(entity);
 	}
 	@Override
+	@Transactional
 	public CategoryDTO save(CategoryDTO dto) {
 		CategoryEntity CategoryEntity = new CategoryEntity();
 		if (dto.getId() != null) {
@@ -58,6 +60,7 @@ public class CategoryService implements ICategoryService {
 	}
 	
 	@Override
+	@Transactional
 	public void delete(long[] ids) {
 		for (long id: ids) {
 			categoryRepository.delete(id);
