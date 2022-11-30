@@ -1,8 +1,8 @@
 package com.bookshop.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -12,14 +12,31 @@ import javax.persistence.Table;
 @Table(name = "role")
 public class RolesEntity extends BaseEntity {
 	
+	public RolesEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Column(name = "name")
 	private String name;
 	
 	@Column(name = "code")
 	private String code;
 	
-	@ManyToMany(mappedBy = "roles")
-    private List<UsersEntity> users = new ArrayList<>();
+	public RolesEntity( String code) {
+		super();
+		this.code = code;
+	}
+
+	public RolesEntity(String code, String name) {
+		super();
+		
+		this.code = code;
+		this.name = name;
+	}
+
+	@ManyToMany(mappedBy = "roles",cascade = {CascadeType.ALL})
+    private List<UsersEntity> users ;
 	
 	public String getName() {
 		return name;
