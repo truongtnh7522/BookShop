@@ -34,12 +34,17 @@ public class CustomUserDetailsService implements UserDetailsService,IUserDetail 
 		 * UsersEntity user = new UsersEntity(registrationDto.getUserName(),
 		 * registrationDto.getPassword()), Arrays.asList(new RolesEntity("ROLE_USER"));
 		 */
+		UsersEntity userEntity = userRepository.findOneByUserNameAndStatus(registrationDto.getUserName(), SystemConstant.ACTIVE_STATUS);
 		
-		  UsersEntity user = new
-		  UsersEntity(registrationDto.getUserName(),registrationDto.getPassword(),
-		  registrationDto.getFullName(),registrationDto.getStatus(),registrationDto.
-		  getImages(),registrationDto.getPhone(),Arrays.asList(new RolesEntity("USER","NguoiDung"))
-		);
+		if (userEntity==null) {
+			 UsersEntity user = new
+					  UsersEntity(registrationDto.getUserName(),registrationDto.getPassword(),
+					  registrationDto.getFullName(),registrationDto.getStatus(),registrationDto.
+					  getImages(),registrationDto.getPhone(),Arrays.asList(new RolesEntity("USER","NguoiDung"))
+					);
+			 return userRepository.save(user);
+		}
+		 
 		 
 		/*
 		 * UsersEntity userEntity = userRepository.findOneByUserNameAndStatus(username,
@@ -49,7 +54,8 @@ public class CustomUserDetailsService implements UserDetailsService,IUserDetail 
 		 * = new MyUser(userEntity.getUserName(), userEntity.getPassword(), true, true,
 		 * true, true, authorities);
 		 */
-		return userRepository.save(user);
+		return null;
+		
 	}
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

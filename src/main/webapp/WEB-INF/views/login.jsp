@@ -82,6 +82,7 @@
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
                 </label>
+                <span class="ml-auto"><a href="<c:url value='/registration'/>" class="forgot-pass">Regitration</a></span> 
                 <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
               </div>
 

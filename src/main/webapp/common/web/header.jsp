@@ -56,7 +56,7 @@
 						
 							<li class="nav-item"><a class="nav-link" href="dang-nhap">Đăng
 									nhập</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Đăng
+							<li class="nav-item"><a class="nav-link" href="registration">Đăng
 									ký</a></li>
 						</security:authorize>
 						<security:authorize access="isAuthenticated()">
